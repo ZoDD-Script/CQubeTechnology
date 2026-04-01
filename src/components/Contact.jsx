@@ -90,7 +90,7 @@ const Contact = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 12,
+                gap: isMobile ? 16 : 12,
                 alignItems: isMobile ? "center" : "flex-start"
               }}
             >
@@ -103,21 +103,26 @@ const Contact = () => {
                   key={item.label}
                   style={{
                     display: "flex",
-                    gap: 12,
-                    alignItems: "flex-start",
-                    textAlign: isMobile ? "center" : "left"
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "center" : "flex-start",
+                    gap: isMobile ? 4 : 12,
+                    textAlign: "center"
                   }}
                 >
-                  {/* <div
-                    style={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      background: GREEN[400],
-                      marginTop: 7,
-                      flexShrink: 0
-                    }}
-                  /> */}
+                  {/* DOT (hidden on mobile) */}
+                  {!isMobile && (
+                    <div
+                      style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: "50%",
+                        background: GREEN[400],
+                        marginTop: 7,
+                        flexShrink: 0
+                      }}
+                    />
+                  )}
+
                   <div>
                     <div
                       style={{
